@@ -64,7 +64,7 @@ operatorBtn.forEach(btn => {
 equalBtn.addEventListener('click', () => {
     smallDisplay.textContent = screen.textContent
     screen.textContent = operate(Number(num1), Number(num2), operator);
-    num1 = operate(Number(num1), Number(num2), operator);
+    num1 = "";
     num2 = "";
     operator = null;
 
