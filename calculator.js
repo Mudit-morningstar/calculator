@@ -59,6 +59,9 @@ numBtn.forEach(btn => {
 
 operatorBtn.forEach(btn => {
     btn.addEventListener('click', () => {
+        if(operator) {
+            calculate();
+        }
         if(result) {
             num1 = result;
             result = null;
@@ -69,9 +72,7 @@ operatorBtn.forEach(btn => {
 })
 
 equalBtn.addEventListener('click', () => {
-    smallDisplay.textContent = screen.textContent;
-    result = operate(Number(num1), Number(num2), operator)
-    screen.textContent = result;
+    calculate();
     num1 = "";
     num2 = "";
     operator = null;
@@ -89,5 +90,11 @@ const clearScreen  = () => {
     num2 = "";
     operator = null;
     result = null;
+}
+
+const calculate = () => {
+    smallDisplay.textContent = screen.textContent;
+    result = operate(Number(num1), Number(num2), operator)
+    screen.textContent = result;
 }
 
