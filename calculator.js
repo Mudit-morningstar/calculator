@@ -1,4 +1,4 @@
-let num1 = "", num2 = "", operator = null, result = "";
+let num1 = "", num2 = "", operator = null, result = null;
 
 const add = (a,b) => {
     return a+b;
@@ -43,12 +43,15 @@ const smallDisplay = document.querySelector(".smallDisplay")
 
 numBtn.forEach(btn => {
     btn.addEventListener('click', () => {
+        if (result) {
+            clearScreen();
+        }
         if(operator === null){
             num1 += (btn.textContent);
-            screen.textContent += num1;
+            screen.textContent += (btn.textContent);
         } else {
             num2 += (btn.textContent);
-            screen.textContent += num2;
+            screen.textContent += (btn.textContent);
         }
         
     })
@@ -56,14 +59,19 @@ numBtn.forEach(btn => {
 
 operatorBtn.forEach(btn => {
     btn.addEventListener('click', () => {
+        if(result) {
+            num1 = result;
+            result = null;
+        }
         operator = btn.textContent;
         screen.textContent += operator;
     })
 })
 
 equalBtn.addEventListener('click', () => {
-    smallDisplay.textContent = screen.textContent
-    screen.textContent = operate(Number(num1), Number(num2), operator);
+    smallDisplay.textContent = screen.textContent;
+    result = operate(Number(num1), Number(num2), operator)
+    screen.textContent = result;
     num1 = "";
     num2 = "";
     operator = null;
@@ -71,11 +79,15 @@ equalBtn.addEventListener('click', () => {
 })
 
 clearBtn.addEventListener('click', () => {
+    clearScreen();
+})
+
+const clearScreen  = () => {
     screen.textContent = '';
     smallDisplay.textContent = '';
     num1 = "";
     num2 = "";
     operator = null;
-})
-
+    result = null;
+}
 
