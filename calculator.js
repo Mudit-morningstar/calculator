@@ -65,6 +65,7 @@ operatorBtn.forEach(btn => {
         if(result) {
             num1 = result;
             result = null;
+            num2 = "";
         }
         operator = btn.textContent;
         screen.textContent += operator;
@@ -94,7 +95,12 @@ const clearScreen  = () => {
 
 const calculate = () => {
     smallDisplay.textContent = screen.textContent;
-    result = operate(Number(num1), Number(num2), operator)
+    console.log("num1", num1);
+    console.log("num2", num2);
+    result = toFixedIfNecessary(operate(Number(num1), Number(num2), operator), 2);
     screen.textContent = result;
 }
 
+const toFixedIfNecessary =( value, dp ) => {
+    return +parseFloat(value).toFixed( dp );
+  }
