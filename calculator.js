@@ -101,6 +101,6 @@ const calculate = () => {
     screen.textContent = result;
 }
 
-const toFixedIfNecessary =( value, dp ) => {
-    return +parseFloat(value).toFixed( dp );
+const toFixedIfNecessary =( value, decimalPlace ) => {
+    return +parseFloat(value).toFixed( decimalPlace );
   }
