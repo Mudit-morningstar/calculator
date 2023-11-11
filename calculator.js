@@ -95,8 +95,6 @@ const clearScreen  = () => {
 
 const calculate = () => {
     smallDisplay.textContent = screen.textContent;
-    console.log("num1", num1);
-    console.log("num2", num2);
     result = toFixedIfNecessary(operate(Number(num1), Number(num2), operator), 2);
     screen.textContent = result;
 }
