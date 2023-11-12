@@ -6,3 +6,5 @@ Final Project for Javascript foundation:
 2. Made a modular functions to add multiple operations
 
 For Learning Dom Manipulations and CSS styling.
+
+12-11-2023 - Diwali ka din, taarikh yaad rakhni hai
